@@ -1,0 +1,72 @@
+[
+    {
+        "_id": "5edbad855c9105c43a9742b3",
+        "name": "Activo",
+        "isMain": true
+    },
+    {
+        "_id": "5edbaddf7789704081f83d57",
+        "name": "Inactivo",
+        "isMain": true
+    },
+    {
+        "_id": "5edbade7d68a27bcbffd0fd2",
+        "name": "Eliminado",
+        "isMain": true
+    },
+    {
+        "_id": "5edbadef278a7f155505c1f0",
+        "name": "Bloqueado",
+        "isMain": true
+    },
+    {
+        "_id": "5edbadf8b34b8da139f57938",
+        "name": "Pendiente",
+        "isMain": true
+    },
+    {
+        "_id": "5edbae001a43ad3034e4452b",
+        "name": "Finalizado",
+        "isMain": true
+    },
+    {
+        "_id": "5edbae091b39627cc9cf989d",
+        "name": "Cancelado",
+        "isMain": true
+    },
+    {
+        "_id": "5edbae19a46290928d48cf16",
+        "name": "En curso",
+        "isMain": true
+    },
+    {
+        "_id": "5edbae220eaf55b598645175",
+        "name": "Falla en delivery",
+        "isMain": true
+    },
+    {
+        "_id": "5edbae28b822546d5d85bcf5",
+        "name": "Entregado",
+        "isMain": true
+    },
+    {
+        "_id": "5edbae3099e59d469b474a6c",
+        "name": "Regalo seleccionado",
+        "isMain": true
+    },
+    {
+        "_id": "5ee512b814c708d92fee7b46",
+        "name": "Pagado",
+        "isMain": true
+    },
+    {
+        "_id": "5f35da22c218bfc46494b348",
+        "name": "Rechazado",
+        "isMain": true
+    },
+    {
+        "_id": "5f35da625dd7104d14cc8588",
+        "name": "Error",
+        "isMain": true
+    }
+]

@@ -1,0 +1,87 @@
+image: node:10
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - init
+  - test
+  - build
+  - deploy
+
+init:
+  stage: init
+  script:
+    - node -v
+    - nodejs -v
+    - npm -v
+    - npm install
+
+audit:
+  stage: test
+  allow_failure: true
+  script:
+    - npm audit
+
+lint:
+  stage: test
+  script:
+    - npm run lint
+
+build:
+  stage: build
+  script:
+    - npm run build
+  only:
+    - dev
+    - /^beta-.*$/
+    - /^prod-.*$/
+
+deploy:dev:
+  image: ruby:latest
+  stage: deploy
+  type: deploy
+  variables:
+    APP_NAME: $HEROKU_APP_NAME_DEV
+    HEROKU_API_KEY: $HEROKU_API_KEY_DEV
+  before_script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+  script:
+    - dpl --provider=heroku --app=$APP_NAME --api-key=$HEROKU_API_KEY
+  only:
+    - dev
+
+deploy:test:
+  image: ruby:latest
+  stage: deploy
+  type: deploy
+  variables:
+    APP_NAME: $HEROKU_APP_NAME_TEST
+    HEROKU_API_KEY: $HEROKU_API_KEY_TEST
+  before_script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+  script:
+    - dpl --provider=heroku --app=$APP_NAME --api-key=$HEROKU_API_KEY
+  only:
+    - /^beta-.*$/
+
+deploy:prod:
+  image: ruby:latest
+  stage: deploy
+  type: deploy
+  variables:
+    APP_NAME: $HEROKU_APP_NAME_PROD
+    HEROKU_API_KEY: $HEROKU_API_KEY_PROD
+  before_script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+  script:
+    - dpl --provider=heroku --app=$APP_NAME --api-key=$HEROKU_API_KEY
+  only:
+    - /^prod-.*$/

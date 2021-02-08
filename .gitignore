@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.env
+.gitlab-ci.example.yml
+mochawesome-reporter/
